@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
         std::vector<int>::iterator it = easyfind(array, atoi(argv[1]));
         std::cout << "value: " << *it << std::endl;
         it++;
-        if (*it != 0)
+        if (it != array.end())
             std::cout << "next value: " << *it << std::endl;
 
     } catch (std::exception &e) {
