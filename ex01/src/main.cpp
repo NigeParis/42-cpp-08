@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:41:08 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/23 15:54:45 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:03:46 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int main(void) {
     
 
     Span test(4);
-    Span test2(0);
+    Span test2;
     test2 = test;
     test.SpanPrint(test, 3);
-    //test.~Span();
     
     test.SpanPrint(test2, 0);
     test.SpanPrint(test2, 1);

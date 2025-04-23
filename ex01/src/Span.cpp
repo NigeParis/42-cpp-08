@@ -6,11 +6,17 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:53:44 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/23 15:53:15 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:01:41 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
+
+
+Span::Span(void) :max_(0), used_(0) {
+    std::cout << "Default span constructor Called" << std::endl;
+    
+};
 
 Span::Span(unsigned int number):max_(number), used_(0) {
     std::cout << "Span constructor Called" << std::endl;
@@ -27,7 +33,7 @@ Span::Span(unsigned int number):max_(number), used_(0) {
     }
 };
 
-Span::Span(const Span &span){
+Span::Span(const Span &span):max_(0), used_(0){
     std::cout << "Copy constructor Span Called" << std::endl;
     *this = span;
 };
