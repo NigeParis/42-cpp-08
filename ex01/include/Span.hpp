@@ -6,13 +6,14 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:40:20 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/23 16:00:36 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:50:03 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <vector>
+#include <climits>
 
 class Span {
 
@@ -23,7 +24,9 @@ class Span {
         Span(const Span &span);
         Span &operator=(const Span &span);
         ~Span(void);
-    
+
+        void addNumber(unsigned int number);
+
         void SpanPrint(const Span &span, unsigned int nbr);
     
     private:
