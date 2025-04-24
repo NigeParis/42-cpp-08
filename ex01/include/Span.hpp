@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:40:20 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 14:25:55 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:53:41 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Span {
 
         Span(unsigned int number, unsigned int startRange, unsigned int endRange);
         void addNumber(unsigned int number);
+        void addMultNumbers(unsigned int startRange, unsigned int endRange);
 
         void SpanPrint(const Span &span, unsigned int nbr);
         unsigned int longestSpan(void);
@@ -45,5 +46,3 @@ class Span {
         
     
 };
-
-std::ostream &operator<<(std::ostream &outputstream, Span &span);

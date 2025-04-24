@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:53:44 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 15:13:51 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:02:07 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Span::Span(unsigned int number):max_(number), used_(0) {
         throw std::out_of_range("Span(number) out of range");
     try {
         this->number_.reserve(number);
+        this->max_ = number;
         //std::cout << "Created memory reserve: " << number << std::endl;
     }
     catch(...) {
@@ -107,15 +108,12 @@ unsigned int Span::shortestSpan(void) {
             lastshortestspan = shortestspan;
         }
     }
-    
     return lastshortestspan;
 }
 
 Span::Span(unsigned int number, unsigned int startRange, unsigned int endRange) {
 
     srand(static_cast<unsigned int>(time(0)));
-
-    std::cout << "inside" << std::endl;
     unsigned int count = 0;
     if (number < 1 || number > UINT_MAX)
         throw std::out_of_range("Span(number) out of range");
@@ -134,18 +132,32 @@ Span::Span(unsigned int number, unsigned int startRange, unsigned int endRange) 
         }
         count++;
     }
-
-    
-    
 };
+
+
+void Span::addMultNumbers(unsigned int startRange, unsigned int endRange) {
+
+    for (unsigned int i = 0; i < this->max_; i++) {
+        this->number_.push_back(0);
+        this->used_ = 0;
+    }
+    
+    for (std::vector<unsigned int>::iterator it = this->number_.begin(); it < this->number_.end(); ++it) {
+        
+       
+        if (it < this->number_.end()) {
+            *it = (startRange + (rand() % (endRange - startRange + 1)));
+            this->used_ += 1;            
+        }
+    }    
+};
+
 
 
 
 // for my own tests
 void Span::SpanPrint(const Span &span, unsigned int nbr) {
-    std::cout << "span used: " << span.used_ << " Nbr: " << nbr << std::endl;
     if((span.used_ < 1) || (nbr >= span.used_))
         throw std::out_of_range("SpanPrint() out of initialised scope");
     std::cout << span.number_[nbr] << std::endl;
-
 };
