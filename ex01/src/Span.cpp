@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:53:44 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 17:06:55 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:26:48 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,13 @@ unsigned int Span::longestSpan(void) {
 
 unsigned int Span::shortestSpan(void) {
     
+    unsigned int lastshortestspan = UINT_MAX;
     unsigned int size = this->number_.size();
     if (size < 2) {
         throw std::runtime_error("Error: no span can be found");
     }
-    
     std::vector<unsigned int> sortedNumbers = this->number_;
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
-    
-    unsigned int lastshortestspan = UINT_MAX;
-    
     for (unsigned int i = 1; i < size; i++) {
         unsigned int shortestspan = sortedNumbers[i] - sortedNumbers[i - 1];
         if (shortestspan < lastshortestspan) {
@@ -134,26 +131,19 @@ Span::Span(unsigned int number, unsigned int startRange, unsigned int endRange) 
     }
 };
 
-
 void Span::addMultNumbers(unsigned int startRange, unsigned int endRange) {
 
     for (unsigned int i = 0; i < this->max_; i++) {
         this->number_.push_back(0);
         this->used_ = 0;
-    }
-    
+    }    
     for (std::vector<unsigned int>::iterator it = this->number_.begin(); it < this->number_.end(); ++it) {
-        
-       
         if (it < this->number_.end()) {
             *it = (startRange + (rand() % (endRange - startRange + 1)));
             this->used_ += 1;            
         }
     }    
 };
-
-
-
 
 // for my own tests
 void Span::SpanPrint(const Span &span, unsigned int nbr) {
