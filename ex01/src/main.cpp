@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:41:08 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 16:59:30 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:12:30 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,9 @@ int main(void) {
         test.SpanPrint(test, 1);
         test.SpanPrint(test, 2);
         test.SpanPrint(test, 3);
-        // test.SpanPrint(test, 10000);
-
-        
-        // test.addNumber(11);
-     
+        std::cout << std::endl;
+        std::cout << test.shortestSpan() << std::endl;
+        std::cout << test.longestSpan() << std::endl;
     }
     catch(const std::exception &e) {
      
@@ -124,9 +122,9 @@ int main(void) {
 
 
     try {
-        Span test(5);
+        Span test(10000);
 
-        test.addMultNumbers(100,11000);
+        test.addMultNumbers(0,4199999999);
    
         std::cout << test.shortestSpan() << std::endl;
         std::cout << test.longestSpan() << std::endl;

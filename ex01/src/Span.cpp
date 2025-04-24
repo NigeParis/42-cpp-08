@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:53:44 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 17:02:07 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:06:55 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Span::Span(void) :max_(0), used_(0) {
     //std::cout << "Default span constructor Called" << std::endl;
 };
 
-Span::Span(unsigned int number):max_(number), used_(0) {
+Span::Span(unsigned int N):max_(N), used_(0) {
     // std::cout << "Span constructor Called" << std::endl;
-    if (number < 1 || number > UINT_MAX)
+    if (N < 1 || N > UINT_MAX)
         throw std::out_of_range("Span(number) out of range");
     try {
-        this->number_.reserve(number);
-        this->max_ = number;
+        this->number_.reserve(N);
+        this->max_ = N;
         //std::cout << "Created memory reserve: " << number << std::endl;
     }
     catch(...) {
