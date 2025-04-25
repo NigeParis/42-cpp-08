@@ -24,14 +24,11 @@ class MutantStack: public std::stack<T> {
         MutantStack(void);
         MutantStack(MutantStack &mutantstack);
         MutantStack &operator=(MutantStack &mutantstack);
-        
-        
         ~MutantStack(void);
 
-
-    // private:
-
-    //     std::stack<int> number_;
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        iterator begin();
+        iterator end();
 
 };
 
