@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 11:40:20 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 17:29:25 by nrobinso         ###   ########.fr       */
+/*   Created: 2025/04/25 09:54:14 by nrobinso          #+#    #+#             */
+/*   Updated: 2025/04/25 10:07:31 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
-#include <stack>
+#include "MutantStack.hpp"
 
 template <typename T> 
-
-class MutantStack: public std::stack<T> {
-
-
-    public:
-
-        MutantStack(void);
-        
-        
-        ~MutantStack(void);
-
-
-    // private:
-
-    //     std::stack<int> number_;
-
+MutantStack<T>::MutantStack(void): std::stack<T>() {
+    std::cout << "Default constuctor called" << std::endl;    
 };
-
-#include "MutantStack.tpp"
-
+        
+template <typename T> 
+MutantStack<T>::~MutantStack(void) {
+    std::cout << "Destuctor called" << std::endl;
+};
