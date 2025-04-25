@@ -14,19 +14,19 @@
 #include <iostream>
 #include <stack>
 
-template <typename T> 
+template <typename T, typename Container = std::deque<T> > 
 
-class MutantStack: public std::stack<T> {
+class MutantStack: public std::stack<T, Container> {
 
 
     public:
 
         MutantStack(void);
-        MutantStack(MutantStack &mutantstack);
-        MutantStack &operator=(MutantStack &mutantstack);
+        MutantStack(MutantStack const &mutantstack);
+        MutantStack &operator=(MutantStack const &mutantstack);
         ~MutantStack(void);
 
-        typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename Container::iterator iterator;
         iterator begin();
         iterator end();
 
