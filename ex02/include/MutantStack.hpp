@@ -22,6 +22,8 @@ class MutantStack: public std::stack<T> {
     public:
 
         MutantStack(void);
+        MutantStack(MutantStack &mutantstack);
+        MutantStack &operator=(MutantStack &mutantstack);
         
         
         ~MutantStack(void);
