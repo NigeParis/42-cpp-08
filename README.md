@@ -23,7 +23,7 @@
 | `std::queue`           | FIFO operations (push, pop, front, back), no random access.             |
 | `std::priority_queue`  | Maintains heap structure, top element is the highest-priority element.  |
 
-# Explanation of `this->c = mutantstack.c;`
+# Explanation of `this->c = mutantstack.c;` - ex02
 
 In the line `this->c = mutantstack.c;`, the assignment operator is copying the underlying container of one `MutantStack` object (`mutantstack`) to another (`*this`). Here's a breakdown of what each part means:
 
