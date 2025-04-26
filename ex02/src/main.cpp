@@ -6,57 +6,54 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:41:08 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/25 17:44:04 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:37:49 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/MutantStack.hpp"
-#include <list>
+
 int main(void) {
     std::cout << "--------- My tests -------------" << std::endl;
-   
     {
         MutantStack<std::string> test2;
         test2.push("test2 first in");
-        MutantStack<std::string> test;
-        
+        MutantStack<std::string> test(test2);  
         test.push("test first in");
         test.push("test last in");
+        MutantStack<std::string> test3(test);
+        std::cout << "test3 size: " << test3.size() << std::endl;
+        std::cout << "test size: " << test.size() << std::endl;
         std::cout << "test.top(): \"" << test.top() << "\" - LIFO" << std::endl;
-        // test.pop();
-        // std::cout << test.top() << std::endl;
-        // std::cout << test.size() << std::endl;
-        std::cout << "-----------" << std::endl;
-        std::cout << "test.size(): " << test.size() << std::endl;
+        test.pop();
+        std::cout << "after test.pop() - test size: " << test.size() << std::endl;
         std::cout << "test2.size(): " << test2.size() << std::endl;
-        test2 = test;
-        std::cout << "test2.size(): " << test2.size() << " after test2 = test" << std::endl;
         std::cout << "-----------" << std::endl;
-        
+        test2 = test;
+        std::cout << "test2.top(): \"" << test2.top() << "\" - LIFO" << std::endl;
+        std::cout << "test2.size(): " << test2.size() << " after test2 = test" << std::endl;
+        std::cout << "-----------" << std::endl; 
         std::cout << "Using iterators - start begin() and it++" << std::endl;
         MutantStack<std::string>::iterator it = test2.begin();
-        std::cout << *it << std::endl;
-        ++it;
-        std::cout << *it << std::endl;
-        ++it;
-        std::cout << *it << std::endl;
-
+        for (int i = 0; i < static_cast<int> (test2.size()); i++) {
+            std::cout << *it << std::endl;
+            ++it;
+        }
         std::cout << "-----------" << std::endl;
-
-        std::cout << "Using iterators - start end() and it--" << std::endl;
-        MutantStack<std::string>::iterator ite = test2.end();
-        std::cout << *ite << std::endl;
-        --ite;
-        std::cout << *ite << std::endl;
-        --ite;
-        std::cout << *ite << std::endl;
+        std::cout << "Using reverse_iterator - start rbegin() and ite++" << std::endl;
+        MutantStack<std::string>::reverse_iterator ite = test2.rbegin();
+        for (int i = 0; i < static_cast<int> (test2.size()); i++) {
+            std::cout << *ite << std::endl;
+            ++ite;
+        }
+        std::cout << "-----------" << std::endl;
+        std::cout << "Using const_iterator - start rbegin() and itc++" << std::endl;
+        MutantStack<std::string>::const_iterator itc = test3.begin() ;
+        for (int i = 0; i < static_cast<int> (test3.size()); i++) {
+            std::cout << *itc << std::endl;
+            ++itc;
+        }
     }
-//     return 0;
-// } 
-
-
     std::cout << "--------- tests 42 -------------" << std::endl;
-    
     {
         MutantStack<int> mstack;
         mstack.push(5);
@@ -79,12 +76,10 @@ int main(void) {
         ++it;
         }
         std::stack<int> s(mstack);
-//         // return 0;
     }
     std::cout << "-------- std::list<int> --------" << std::endl;
     {
         std::list<int> mstack;
-        
         mstack.push_back(5);
         mstack.push_back(17);
         std::cout << mstack.back() << std::endl;
@@ -104,9 +99,7 @@ int main(void) {
         std::cout << *it << std::endl;
         ++it;
         }
-        // std::stack<int> s(mstack); // does not work see modification below
-        // Use std::list as the underlying container for std::stack
-        std::stack<int, std::list<int> > s(mstack);
+        std::list<int> s(mstack); 
     }
     return 0;
 }

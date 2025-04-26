@@ -13,6 +13,8 @@
 #pragma once
 #include <iostream>
 #include <stack>
+#include <list>
+
 
 template <typename T, typename Container = std::deque<T> > 
 
@@ -24,11 +26,17 @@ class MutantStack: public std::stack<T, Container> {
         MutantStack(void);
         MutantStack(MutantStack const &mutantstack);
         MutantStack &operator=(MutantStack const &mutantstack);
-        ~MutantStack(void);
+        virtual ~MutantStack(void);
 
         typedef typename Container::iterator iterator;
+        typedef typename Container::const_iterator const_iterator;
+        typedef typename Container::reverse_iterator reverse_iterator;
         iterator begin();
         iterator end();
+        const_iterator begin() const;
+        const_iterator end() const;
+        reverse_iterator rbegin();
+        reverse_iterator rend();
 
 };
 
