@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:41:08 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/26 09:37:49 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:40:18 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int main(void) {
         --it;
         while (it != ite)
         {
-        std::cout << *it << std::endl;
-        ++it;
+            std::cout << *it << std::endl;
+            ++it;
         }
         std::stack<int> s(mstack);
     }
@@ -96,8 +96,8 @@ int main(void) {
         --it;
         while (it != ite)
         {
-        std::cout << *it << std::endl;
-        ++it;
+            std::cout << *it << std::endl;
+            ++it;
         }
         std::list<int> s(mstack); 
     }
