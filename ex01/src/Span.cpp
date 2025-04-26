@@ -6,12 +6,11 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:53:44 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 17:26:48 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:45:04 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
-
 
 Span::Span(void) :max_(0), used_(0) {
     //std::cout << "Default span constructor Called" << std::endl;
@@ -55,9 +54,6 @@ Span &Span::operator=(const Span &span){
 Span::~Span(void){
     //std::cout << "Delete Span Called" << std::endl;
 };
-
-
-
 
 void Span::addNumber(unsigned int number) {
     

@@ -6,7 +6,7 @@
 /*   By: nrobinso <nrobinso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:41:08 by nrobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 17:12:30 by nrobinso         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:46:47 by nrobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ int main(void) {
             std::cout << sp.shortestSpan() << std::endl;
             std::cout << sp.longestSpan() << std::endl;
             //return 0;
-        
     }
     catch(const std::exception &e) {
      
         std::cerr << e.what() << '\n';
     }
-
 
     std::cout << "----------------- My test #1 ------------------" << std::endl; 
     // empty
@@ -48,8 +46,7 @@ int main(void) {
     }
     
     std::cout << "----------------- My test #2 ------------------" << std::endl; 
-    
-    
+        
     try {
         Span test(20000);
         Span test2;
@@ -58,20 +55,15 @@ int main(void) {
         test.addNumber(17);
         test.addNumber(3);
         test.addNumber(11);
-
         test2 = test;
-     
         test2.SpanPrint(test2, 0);
         test2.SpanPrint(test2, 1);
         test2.SpanPrint(test2, 2);
         test2.SpanPrint(test2, 3);
         test2.SpanPrint(test2, 4);
-
         std::cout << std::endl;
-
         std::cout << test2.shortestSpan() << std::endl;
         std::cout << test2.longestSpan() << std::endl;
-     
     }
     catch(const std::exception &e) {
      
@@ -80,19 +72,14 @@ int main(void) {
 
     std::cout << "----------------- My test #3 ------------------" << std::endl; 
 
-
     try {
         Span test(4);
         test.addNumber(6);
         test.addNumber(9);
         test.addNumber(17);
         test.addNumber(3);
-
         test.SpanPrint(test, 2);
-
-        
         test.addNumber(11);
-     
     }
     catch(const std::exception &e) {
      
@@ -100,7 +87,6 @@ int main(void) {
     }
 
     std::cout << "----------------- My test #4 ------------------" << std::endl; 
-
 
     try {
         Span test(10000, 1, 10);
@@ -120,12 +106,10 @@ int main(void) {
 
     std::cout << "----------------- My test #5 ------------------" << std::endl; 
 
-
     try {
         Span test(10000);
 
-        test.addMultNumbers(0,4199999999);
-   
+        test.addMultNumbers(0,4199999999);   
         std::cout << test.shortestSpan() << std::endl;
         std::cout << test.longestSpan() << std::endl;
      
@@ -135,7 +119,5 @@ int main(void) {
         std::cerr << e.what() << '\n';
     }
 
-    
-    
     return 0;
 } 
