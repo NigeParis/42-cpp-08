@@ -1,4 +1,47 @@
-# 42-cpp-08 - NOTES
+# 42-cpp-08 
+# **42 - Exercise 00: Easy Find (C++ Module 08)**  
+
+## **Overview**  
+This exercise focuses on searching for elements in **STL containers** using **iterators**. The goal is to implement a **template function** that efficiently finds a value inside a given container.
+
+---
+
+## **Objectives**  
+- Use **STL containers** like `vector`, `list`, and `deque`.  
+- Implement **iterators** for efficient element lookup.  
+- Create a **generic function** using **templates** to work with multiple container types.  
+
+---
+
+## **Implementation Approach**  
+
+### **1. Template-Based Search Function**  
+Using `std::find` from the `<algorithm>` library to search for an element efficiently.  
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+template <typename T>
+bool easyFind(T& container, int value) {
+    return std::find(container.begin(), container.end(), value) != container.end();
+}
+
+int main() {
+    std::vector<int> numbers = {10, 20, 30, 40, 50};
+    int searchValue = 30;
+
+    if (easyFind(numbers, searchValue))
+        std::cout << searchValue << " found!" << std::endl;
+    else
+        std::cout << searchValue << " not found!" << std::endl;
+
+    return 0;
+}
+```
+
+# NOTES
 # C++98 Containers and Their Features
 
 ## Sequence Containers
@@ -45,3 +88,5 @@ In the line `this->c = mutantstack.c;`, the assignment operator is copying the u
 
 ## Why This Works:
 The `std::stack` class does not directly expose its underlying container to the outside world. However, since `MutantStack` is derived from `std::stack`, it inherits access to the **protected member** `c` of the base class. This allows `MutantStack` to directly manipulate the container for tasks like deep copying during assignment.
+
+
