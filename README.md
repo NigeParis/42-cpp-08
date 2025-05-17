@@ -42,21 +42,30 @@ int main() {
 
 ```
 Explanation
-
+```
     Templates allow the function to work with any STL container (vector, list, deque).
 
     std::find() searches from container.begin() to container.end().
 
     Returns true if found, otherwise false.
 
+```
 Key Takeaways
+
 ```
 
     STL iterators provide efficient ways to traverse containers.
+
     Templates make functions flexible for different container types.
+
     Using std::find() simplifies searching operations.
 
 ```
+
+
+
+
+
 # NOTES
 # C++98 Containers and Their Features
 
