@@ -62,9 +62,81 @@ Key Takeaways
 
 ```
 
+# **42 - Exercise 01: Span**  
 
+## **Overview**  
+This exercise focuses on handling **numeric sequences efficiently** using C++ STL. The goal is to implement a class that stores numbers and computes the **shortest** and **longest spans** between them.
 
+---
 
+## **Objectives**  
+- Implement a **class to store numbers dynamically**.  
+- Use **STL containers** (`vector`) to manage elements.  
+- Compute the **shortest** and **longest distance** between elements.  
+
+---
+
+## **Implementation Approach**  
+
+### **1. Span Class Definition**  
+The class should support adding numbers and computing spans.  
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
+
+class Span {
+private:
+    std::vector<int> numbers;
+public:
+    void addNumber(int num) { numbers.push_back(num); }
+
+    int shortestSpan() {
+        if (numbers.size() < 2) throw std::runtime_error("Not enough numbers!");
+        std::vector<int> sorted = numbers;
+        std::sort(sorted.begin(), sorted.end());
+        int minSpan = sorted[1] - sorted[0];
+        for (size_t i = 1; i < sorted.size(); ++i)
+            minSpan = std::min(minSpan, sorted[i] - sorted[i - 1]);
+        return minSpan;
+    }
+
+    int longestSpan() {
+        if (numbers.size() < 2) throw std::runtime_error("Not enough numbers!");
+        return *std::max_element(numbers.begin(), numbers.end()) - *std::min_element(numbers.begin(), numbers.end());
+    }
+};
+
+int main() {
+    Span sp;
+    sp.addNumber(10);
+    sp.addNumber(3);
+    sp.addNumber(20);
+    std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+}
+```
+Explanation
+```
+    Stores numbers in a std::vector<int>.
+
+    Computes shortest span by sorting and finding the smallest difference.
+
+    Finds longest span using std::max_element() and std::min_element().
+
+    Handles edge cases when there aren't enough numbers.
+```
+Key Takeaways
+```
+    Uses STL containers for efficient storage and manipulation.
+
+    Implements sorting and comparisons for span calculations.
+
+    Reinforces dynamic memory handling with vector.
+
+```
 
 # NOTES
 # C++98 Containers and Their Features
