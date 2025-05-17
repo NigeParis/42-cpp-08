@@ -1,5 +1,5 @@
 # 42-cpp-08 
-# **42 - Exercise 00: Easy Find (C++ Module 08)**  
+# **42 - Exercise 00: Easy Find**  
 
 ## **Overview**  
 This exercise focuses on searching for elements in **STL containers** using **iterators**. The goal is to implement a **template function** that efficiently finds a value inside a given container.
