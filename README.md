@@ -138,6 +138,74 @@ Key Takeaways
 
 ```
 
+
+# **42 - Exercise 02: MutantStack**  
+
+## **Overview**  
+The `std::stack` container is a powerful tool, but **it lacks iterators**, making traversal difficult.  
+This exercise challenges you to **extend `std::stack`**, creating a **custom class `MutantStack`** that retains all its functionalities while **adding iterator support**.  
+
+---
+
+## **Objectives**  
+- Implement a **derived class** based on `std::stack`.  
+- Add **iterator support**, enabling traversal like other STL containers.  
+- Ensure **compatibility** with all standard `std::stack` operations.  
+- Write **tests** to validate the functionality of `MutantStack`.  
+
+---
+
+## **Implementation Approach**  
+
+### **1. Extending `std::stack` with Iterators**  
+The core modification introduces **iterator functionality**, using `std::deque` as the underlying container.  
+
+```cpp
+#include <iostream>
+#include <stack>
+
+template <typename T>
+class MutantStack : public std::stack<T> {
+public:
+    using iterator = typename std::deque<T>::iterator;
+
+    iterator begin() { return this->c.begin(); }
+    iterator end() { return this->c.end(); }
+};
+
+int main() {
+    MutantStack<int> mStack;
+    mStack.push(10);
+    mStack.push(20);
+    mStack.push(30);
+
+    for (MutantStack<int>::iterator it = mStack.begin(); it != mStack.end(); ++it)
+        std::cout << *it << " ";
+
+    return 0;
+}
+
+```
+
+Explanation
+```
+    Inheritance: MutantStack extends std::stack<T>.
+
+    Iterator Support: Uses std::deque's built-in iterator (c refers to the underlying container).
+
+    Testing: Ensures push(), pop(), and iteration work as expected.
+
+```
+Key Takeaways
+```
+    Enhancing STL containers by modifying default behavior.
+
+    Iterator integration makes std::stack more flexible.
+
+    Maintains full compatibility with std::stack functions.
+
+```
+
 # NOTES
 # C++98 Containers and Their Features
 
